@@ -1,0 +1,53 @@
+---
+layout: default
+title: Beoning
+permalink: /
+thumb_force_logo: true
+---
+
+{%- include amsf/core -%}
+
+<!-- Article wrapper, limit width -->
+<article>
+
+  <!-- Post title -->
+  <header>
+
+    <h1 class="title">
+      {{ site.name }}
+    </h1>
+
+    <h2 class="sub-title">{{ site.description }}</h2>
+
+    <small><b>China Beijing</b>&#x30FB; <b class="amsf-version">Web developer</b>&#x30FB;view my projects on <a href="https://github.com/muyehub">GitHub</a></small>
+  </header>
+
+  <div class="page-content">
+    <h2>Recent Posts</h2>
+    {% for post in paginator.posts %}
+  <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+  <p class="author">
+    <span class="date">{{ post.date }}</span>
+  </p>
+  <div class="content">
+    {{ post.content }}
+  </div>
+{% endfor %}
+
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}
+</div>
+
+  </div>
+</article>
